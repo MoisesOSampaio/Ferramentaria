@@ -1,7 +1,17 @@
 <?php
 
-use SOURCE\database\Conexao;
+use SOURCE\routes\Router;
+use Dotenv\Dotenv;
 
 require '../vendor/autoload.php';
 
-$teste = new Conexao();
+$dotenv = Dotenv::createImmutable(dirname(__DIR__,1));
+$dotenv->load();
+
+
+$path = Router::execute();
+
+
+require '../src/view/' . $path;
+
+?>

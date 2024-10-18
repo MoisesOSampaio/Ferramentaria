@@ -2,7 +2,9 @@
 
 namespace SOURCE\model;
 
-class Usuario
+use Exception;
+
+class Usuario 
 {
    private $id,$nome,$usuario,$senha;
    
@@ -14,6 +16,40 @@ class Usuario
      $this->usuario = $usuario;
      $this->senha = $senha;
    }
+
+   public function cadastrar($conn)
+    {
+        
+
+        $sql = "INSERT INTO Usuario (nome,senha,usuario) VALUES (:name,:password,:user) ";
+
+        echo $sql;
+        $insert = $conn->prepare($sql);
+
+        
+        $insert->bindValue(":user",$this->usuario);
+        $insert->bindValue(":name",$this->nome);
+        $insert->bindValue(":password",$this->senha);
+        
+        
+        $insert->execute();
+
+    }
+
+    public function editar()
+    {
+
+    }
+
+    public function selecionar()
+    {
+        
+    }
+
+    public function deletar()
+    {
+        
+    }
 
 
    //Getters and Setters
