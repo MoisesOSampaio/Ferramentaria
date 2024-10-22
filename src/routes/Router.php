@@ -30,13 +30,13 @@ class Router{
         return [
             'get' => [
                 '/' => fn() => self::load('HomeController','index'),
-                '/Usuario/Login' => fn() => self::load('UsuarioController','login'),
-                '/Usuario/Create' => fn() => self::load('UsuarioController','create'),
-                '/Usuario/Update' => fn() => self::load('UsuarioController','update'),
-                '/Usuario/Delete' => fn() => self::load('UsuarioController','delete')
+                '/Usuario/Login' => fn() => self::load('UserController','login'),
+                '/User/Create' => fn() => self::load('UserController','create'),
+                '/Usuario/Update' => fn() => self::load('UserController','update'),
+                '/Usuario/Delete' => fn() => self::load('UserController','delete')
             ],
             'post' => [
-                '/Usuario/Create' => fn() => self::load('UsuarioController','createRecord'),
+                '/User/Create' => fn() => self::load('UserController','createRecord'),
             ],
             'put' => [
 
